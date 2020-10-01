@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head%}
+    <title>Home - Cricket Database</title>
+{% endblock %}
+
+{% block body %}
+    
+
+    {% for post in posts %}
+        <h2>{{ post.name }}</h2>
+        {% for player in post.player_set.all %}
+            <a href="{% url 'player' player_id=player.id %}">{{ player.name }}</a>
+        {% endfor %}
+    {% endfor %}
+    <!-- {% for player in players %}
+        <a href="{% url 'player' player_id=player.id %}">{{ player.name }}</a>
+    {% endfor %} -->
+
+{% endblock %}
