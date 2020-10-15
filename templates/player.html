@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block head %}
+    {% if player %}
+        <title>{{ player.name }} - Player Detail</title>
+    {% else %}
+        <title> Invalid - Player Detail </title>
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <a href="{% url 'index' %}">&lt; Back</a>
+    {% if player %}
+        <h2>{{ player.name }}</h2>
+        <h4>{{ player.post.name }}</h4>
+        <p>{{  player.description }}</p>
+    {% else %}
+        <h2> Player Not Found in the Database! </h2>
+    {% endif %}
+
+{% endblock %}
